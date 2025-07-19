@@ -1,8 +1,12 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AnimalController : MonoBehaviour
 {
 
+
+    [SerializeField]
     private enum _animalState
     {
         IDLE, // breathing 0
@@ -15,6 +19,18 @@ public class AnimalController : MonoBehaviour
         SITTING, // sitting 7
     }
 
+    private Dictionary<_animalState, int> _mapAnimalStateToId = new Dictionary<_animalState, int>
+    {
+        {_animalState.IDLE, 0},
+        {_animalState.PLAYING, 1},
+        {_animalState.WALKING01, 2},
+        {_animalState.WALKING02, 3},
+        {_animalState.RUNNING, 4},
+        {_animalState.EATING, 5},
+        {_animalState.ANGRY, 6},
+        {_animalState.SITTING, 7},
+    };
+    [SerializeField]
     private _animalState _currentState;
     private Animator _animator;
 
@@ -28,16 +44,23 @@ public class AnimalController : MonoBehaviour
             Debug.Log("animator component not found");
             return;
         }
-
-        SetAnimation(0, _animalState.IDLE);
+        _currentState = _animalState.WALKING01;
+        SetAnimation(_currentState);
+        Debug.Log(_currentState + "currentState");
     }
 
-
-    private void SetAnimation(int _animationId, _animalState _newState)
+    private void Update()
     {
-        if (_currentState == _newState) return;
+        SetAnimation(_currentState);
+    }
 
-        _animator.SetInteger("AnimationID", _animationId);
+    private void SetAnimation(_animalState _newState)
+    {
+        Debug.Log(_mapAnimalStateToId[_newState] + " state number");
+        Debug.Log($"{_currentState}-currentState ${_newState}-newState");
+        // if (_currentState == _newState) return;
+
+        _animator.SetInteger("AnimationID", _mapAnimalStateToId[_newState]);
         _currentState = _newState;
     }
 
