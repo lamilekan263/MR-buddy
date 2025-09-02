@@ -7,7 +7,7 @@ public class AnimalController : MonoBehaviour
 
 
     [SerializeField]
-    private enum _animalState
+    public enum _animalState
     {
         IDLE, // breathing 0
         PLAYING, // playing 1
@@ -31,7 +31,7 @@ public class AnimalController : MonoBehaviour
         {_animalState.SITTING, 7},
     };
     [SerializeField]
-    private _animalState _currentState;
+    public _animalState _currentState;
     private Animator _animator;
 
 
@@ -44,7 +44,7 @@ public class AnimalController : MonoBehaviour
             Debug.Log("animator component not found");
             return;
         }
-        _currentState = _animalState.WALKING01;
+        _currentState = _animalState.SITTING;
         SetAnimation(_currentState);
         Debug.Log(_currentState + "currentState");
     }
@@ -54,10 +54,10 @@ public class AnimalController : MonoBehaviour
         SetAnimation(_currentState);
     }
 
-    private void SetAnimation(_animalState _newState)
+    public void SetAnimation(_animalState _newState)
     {
-        Debug.Log(_mapAnimalStateToId[_newState] + " state number");
-        Debug.Log($"{_currentState}-currentState ${_newState}-newState");
+        // Debug.Log(_mapAnimalStateToId[_newState] + " state number");
+        // Debug.Log($"{_currentState}-currentState ${_newState}-newState");
         // if (_currentState == _newState) return;
 
         _animator.SetInteger("AnimationID", _mapAnimalStateToId[_newState]);

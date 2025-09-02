@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7588891467066084880
+--- !u!114 &-4020699524806985312
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13,19 +13,6 @@ MonoBehaviour:
   m_Name: WitComposerData
   m_EditorClassIdentifier: 
   canvases: []
---- !u!114 &-2426355912040047362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4095e5fe4b954920a6705817d3fd6744, type: 3}
-  m_Name: WitCharacterData
-  m_EditorClassIdentifier: 
-  characters: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36,7 +23,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae5a46bda3295124c99b0e6537ac7252, type: 3}
-  m_Name: Shapes - WitConfiguration
+  m_Name: wit
   m_EditorClassIdentifier: 
   _clientAccessToken: ZT2JEQIHVYFXRW4JG3JQZSXWNNZTAPMK
   editorVersionTag: 
@@ -56,7 +43,10 @@ MonoBehaviour:
       name: wake_word
       entities: []
     entities: []
-    traits: []
+    traits:
+    - name: wake_word
+      id: 744101815455738
+      values: []
     versionTags: []
     voices:
     - name: wit$British Butler
@@ -565,8 +555,8 @@ MonoBehaviour:
       - phoneme_events
       - word_events
   _configData:
-  - {fileID: -7588891467066084880}
-  _configurationId: 4e21a24e472ab684e84db753427d5687
+  - {fileID: -4020699524806985312}
+  _configurationId: c5fff1c1-cfae-499d-9923-fc34991b88c7
   _requestType: 0
   _requestTimeoutMs: 10000
   endpointConfiguration:
@@ -580,23 +570,11 @@ MonoBehaviour:
     _synthesize: 
     _event: 
     _converse: 
-  isDemoOnly: 1
+  isDemoOnly: 0
   useIntentAttributes: 1
-  useConduit: 0
-  _manifestLocalPath: ConduitManifest-63301a14-cdfe-465a-91c0-0d8db67feb7f.json
+  useConduit: 1
+  _manifestLocalPath: ConduitManifest-79c579f7-b243-4ee7-9522-1ae77be6efad.json
   excludedAssemblies:
   - Oculus.Voice.Demo, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - Meta.WitAi.Samples, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   relaxedResolution: 0
---- !u!114 &2777271245171985213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f23565a6e584061b45b8bba0c7cee1c, type: 3}
-  m_Name: WitAiTaskData
-  m_EditorClassIdentifier: 
